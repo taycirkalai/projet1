@@ -17,7 +17,7 @@ class TestController extends AbstractController
     }
 
 
-    #[Route('/{name}', name: 'app_test')]
+    #[Route('/{name}', name: 'app_name')]
     public function name($name): Response
     {
         $nom= strtoupper($name);
@@ -25,13 +25,17 @@ class TestController extends AbstractController
         return $this->render('test/name.html.twig',['nom' => $nom ]);
     }
 
-
-
-    #[Route('/somme/{nb1}/{nb2}', name : 'somme')]
-    public function somme($nb1,$nb2): Response
+    #[Route('/somme/{nb1}/{nb2}', name: 'app_somme')]
+    public function somme ($nb1,$nb2): Response
     {
-        $somme= $nb1 +$nb2 ;
+        $somme=$nb1+$nb2;
 
-        return $this->render('test/somme.html.twig',["a"=>$nb1,"b"=>$nb2,'somme' => $somme]);
+        return $this->render('test/somme.html.twig',['a'=>$nb1,'b'=>$nb2,'somme' => $somme ]);
     }
+
+
+
+   
+
+
 }
